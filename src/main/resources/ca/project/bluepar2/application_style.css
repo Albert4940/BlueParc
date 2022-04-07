@@ -1,0 +1,17 @@
+#en_tete, #menu {
+    -fx-background-color: lightblue;
+}
+
+#nom_utilisateur{
+    -fx-font-weight: bold;
+}
+
+#en_tete {
+    -fx-border-width: 0 0 2 0;
+    -fx-border-style: solid;
+}
+
+.menu_action {
+    -fx-min-width: 125px;
+    -fx-font-size: 10pt;
+}

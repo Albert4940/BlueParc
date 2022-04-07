@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox fx:id="login_pane"
+      alignment="CENTER"
+      stylesheets="@styles.css"
+      xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ca.project.bluepar2.HelloController">
+
+<!--    <AnchorPane>-->
+<!--      <children>-->
+<!--         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">-->
+<!--            <image>-->
+<!--               <Image url="@../../../../java/ca/project/bluepar2/assets/demiz.jpg" />-->
+<!--            </image></ImageView>-->
+<!--      </children></AnchorPane>-->
+<!--    <VBox alignment="CENTER" fillWidth="200">-->
+<!--        <ImageView >-->
+<!--            <image>-->
+<!--                <Image url="@images/demiz.jpg" />-->
+<!--            </image>-->
+<!--        </ImageView>-->
+<!--    </VBox>-->
+<!--    <StackPane  alignment="CENTER" >-->
+        <VBox fx:id="login_form" spacing="15">
+
+            <Text styleClass="titre_primaire">Bienvenue a Centre Aquatique
+            </Text>
+            <Text styleClass="titre_secondaire">Connectez-vous a votre Compte</Text>
+            <Text fx:id="message" fill="#ef0404" />
+            <Label textAlignment="LEFT">Nom d'utilisateur:
+            </Label>
+            <TextField fx:id="nomUtilisateur" styleClass="input" />
+
+            <Label textAlignment="LEFT">Mot de passe:
+            </Label>
+            <PasswordField fx:id="motDePasse" styleClass="input" />
+            <Button fx:id="login_btn" onMouseClicked="#check">
+              Se connecter
+            </Button>
+        </VBox>
+<!--    </StackPane>-->
+
+</HBox>
