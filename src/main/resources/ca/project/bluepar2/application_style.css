@@ -1,7 +1,28 @@
 #en_tete, #menu {
     -fx-background-color: lightblue;
+    -fx-min-height: 200px;
 }
 
+#titre_primaire{
+    -fx-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+.btn_menu{
+    -fx-min-height: 150px;
+    -fx-min-width: 200px;
+    -fx-border: none;
+    -fx-background-color: lightblue;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.text_menu{
+    -fx-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
 #nom_utilisateur{
     -fx-font-weight: bold;
 }
@@ -9,8 +30,11 @@
 #en_tete {
     -fx-border-width: 0 0 2 0;
     -fx-border-style: solid;
+    -fx-border-color: #6e6eea;
 }
-
+#pane{
+    -fx-background-color: rgba(235, 235, 243, 0.78);
+}
 .menu_action {
     -fx-min-width: 125px;
     -fx-font-size: 10pt;

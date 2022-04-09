@@ -22,6 +22,7 @@
 }
 .input{
     -fx-max-width: 300px;
+    -fx-min-height: 30px;
     -fx-border-width: 0.5;
     -fx-border-style: solid;
     -fx-border-color: gray;
@@ -31,6 +32,7 @@
 #login_btn{
     -fx-background-color: blue;
     -fx-min-width: 100px;
+    -fx-min-height: 40px;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-size: 13px;

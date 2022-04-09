@@ -10,73 +10,174 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.geometry.Insets?>
-<BorderPane xmlns="http://javafx.com/javafx"
+<VBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="ca.project.bluepar2.ApplicationController"
+            fx:id="pane"
             stylesheets="@application_style.css"
             >
-    <!--Section du haut-->
-    <top>
-        <fx:include source="top-menu.fxml"/>
-    </top>
-
-    <!--Section du menu-->
-    <left>
-       <fx:include source="left-menu.fxml"/>
-    </left>
-
-    <center >
-        <VBox fx:id="zone_travail" alignment="TOP_LEFT" spacing="10">
-            <padding>
-                <Insets top="10" bottom="10" left="10" right="10"/>
-            </padding>
-            <!-- On remarque que les boutons ne sont pas tous de la même grandeur et s'étalent sur 2 ligne -->
-            <FlowPane orientation="HORIZONTAL" hgap="10" vgap="2">
-                <Button styleClass="outil_action">Nouveau</Button>
-                <Button styleClass="outil_action">Dupliquer</Button>
-                <Button styleClass="outil_action">Charger</Button>
-                <Button styleClass="outil_action">Sauvegarder</Button>
-                <Button styleClass="outil_action">Ouvrir</Button>
-                <Button styleClass="outil_action">Fermer</Button>
-                <Button styleClass="outil_action">Fiche précédente</Button>
-                <Button styleClass="outil_action">Fiche suivante</Button>
-            </FlowPane>
-
-            <Separator></Separator>
-
-            <!-- Une grille est très souvent utilisée pour aligner les formulaires -->
-            <GridPane vgap="5" hgap="10">
-                <Label textAlignment="LEFT"
-                       GridPane.rowIndex="0" GridPane.columnIndex="0">Nom :
-                </Label>
-                <TextField GridPane.rowIndex="0" GridPane.columnIndex="1"></TextField>
-
-                <Label textAlignment="LEFT"
-                       GridPane.rowIndex="1" GridPane.columnIndex="0">Famille :
-                </Label>
-                <TextField GridPane.rowIndex="1" GridPane.columnIndex="1"></TextField>
-
-                <Label textAlignment="LEFT"
-                       GridPane.rowIndex="2" GridPane.columnIndex="0">Point de santé :
-                </Label>
-                <TextField GridPane.rowIndex="2" GridPane.columnIndex="1"></TextField>
-
-                <Label textAlignment="LEFT"
-                       GridPane.rowIndex="3" GridPane.columnIndex="0">Arme :
-                </Label>
-                <TextField GridPane.rowIndex="3" GridPane.columnIndex="1"></TextField>
-            </GridPane>
-
-            <!-- On aurait pu utilisé un AnchorPane global, mais ici on a vraiment juste besoin des fonctionnalités
-            d'ancre pour ces deux boutons -->
-            <AnchorPane>
-                <HBox AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="10"
-                      spacing="10">
-                    <Button styleClass="form_action">Valider</Button>
-                    <Button styleClass="form_action">Réinitialiser</Button>
-                </HBox>
-            </AnchorPane>
+    <HBox fx:id="en_tete" alignment="CENTER">
+        <VBox alignment="CENTER">
+            <Text fx:id="titre_primaire">PARC AQUATIQUE</Text>
         </VBox>
-    </center>
+    </HBox>
+    <GridPane vgap="10" hgap="10"  alignment="CENTER" fx:id="menu_pane">
+        <padding>
+            <Insets top="20" bottom="10" left="10" right="10"/>
+        </padding>
+<!--        <Button fx:id="accueil"-->
+<!--                styleClass="btn_menu"-->
+<!--                onAction="#openWindow"-->
+<!--                GridPane.rowIndex="0"-->
+<!--                GridPane.columnIndex="0">-->
+<!--            Accueil-->
+<!--        </Button>-->
+        <VBox
+                fx:id="homeVb"
+                alignment="CENTER"
+                    styleClass="btn_menu"
+                    GridPane.rowIndex="0"
+    GridPane.columnIndex="0">
+                    <ImageView fx:id="homeImg">
+                        <image>
+                            <Image url="@images/ic_home.png" />
+                        </image>
+                    </ImageView>
+                <Text fx:id="homeTxt" styleClass="text_menu">Accueil</Text>
+            </VBox>
+<!--            <Button fx:id="employe"-->
+<!--                    styleClass="btn_menu"-->
+<!--                    onAction="#openWindow"-->
+<!--                    GridPane.rowIndex="0"-->
+<!--                    GridPane.columnIndex="1">Employe</Button>-->
 
-</BorderPane>
+        <VBox
+                fx:id="clientVb"
+                alignment="CENTER"
+                styleClass="btn_menu"
+                GridPane.rowIndex="0"
+                GridPane.columnIndex="2">
+            <ImageView fx:id="clientImg">
+                <image>
+                    <Image url="@images/ic_custommer.png" />
+                </image>
+            </ImageView>
+            <Text fx:id="clientTxt" styleClass="text_menu">Client</Text>
+        </VBox>
+<!--            <Button fx:id="client"-->
+<!--                    onAction="#openWindow"-->
+<!--                    styleClass="btn_menu"-->
+<!--                    GridPane.rowIndex="0"-->
+<!--                    GridPane.columnIndex="2">Client</Button>-->
+
+        <VBox
+                fx:id="employeVb"
+                alignment="CENTER"
+                styleClass="btn_menu"
+                GridPane.rowIndex="0"
+                GridPane.columnIndex="1">
+            <ImageView fx:id="employeImg">
+                <image>
+                    <Image url="@images/ic_employee.png" />
+                </image>
+            </ImageView>
+            <Text fx:id="employeTxt" styleClass="text_menu">Employe</Text>
+        </VBox>
+<!--            <Button fx:id="activite"-->
+<!--                    styleClass="btn_menu"-->
+<!--                    onAction="#openWindow"-->
+<!--                    GridPane.rowIndex="1"-->
+<!--                    GridPane.columnIndex="0">Activite</Button>-->
+        <VBox
+                fx:id="activiteVb"
+                alignment="CENTER"
+                styleClass="btn_menu"
+                GridPane.rowIndex="1"
+                GridPane.columnIndex="0">
+            <ImageView fx:id="activiteImg">
+                <image>
+                    <Image url="@images/ic_card-list.png" />
+                </image>
+            </ImageView>
+            <Text fx:id="activiteTxt" styleClass="text_menu">Activite</Text>
+        </VBox>
+
+        <VBox
+                fx:id="deconnexionVb"
+                alignment="CENTER"
+                styleClass="btn_menu"
+                GridPane.rowIndex="1"
+                GridPane.columnIndex="1">
+            <ImageView fx:id="deconnexionImg">
+                <image>
+                    <Image url="@images/ic_logout.png" />
+                </image>
+            </ImageView>
+            <Text fx:id="deconnexionTxt" styleClass="text_menu">Deconnexion</Text>
+        </VBox>
+        </GridPane>
+    <!--    &lt;!&ndash;Section du haut&ndash;&gt;-->
+<!--    <top>-->
+<!--        <fx:include source="top-menu.fxml"/>-->
+<!--    </top>-->
+
+<!--    &lt;!&ndash;Section du menu&ndash;&gt;-->
+<!--    <left>-->
+<!--       <fx:include source="left-menu.fxml"/>-->
+<!--    </left>-->
+
+<!--    <center >-->
+<!--        <VBox fx:id="zone_travail" alignment="TOP_LEFT" spacing="10">-->
+<!--            <padding>-->
+<!--                <Insets top="10" bottom="10" left="10" right="10"/>-->
+<!--            </padding>-->
+<!--            &lt;!&ndash; On remarque que les boutons ne sont pas tous de la même grandeur et s'étalent sur 2 ligne &ndash;&gt;-->
+<!--            <FlowPane orientation="HORIZONTAL" hgap="10" vgap="2">-->
+<!--                <Button styleClass="outil_action">Nouveau</Button>-->
+<!--                <Button styleClass="outil_action">Dupliquer</Button>-->
+<!--                <Button styleClass="outil_action">Charger</Button>-->
+<!--                <Button styleClass="outil_action">Sauvegarder</Button>-->
+<!--                <Button styleClass="outil_action">Ouvrir</Button>-->
+<!--                <Button styleClass="outil_action">Fermer</Button>-->
+<!--                <Button styleClass="outil_action">Fiche précédente</Button>-->
+<!--                <Button styleClass="outil_action">Fiche suivante</Button>-->
+<!--            </FlowPane>-->
+
+<!--            <Separator></Separator>-->
+
+<!--            &lt;!&ndash; Une grille est très souvent utilisée pour aligner les formulaires &ndash;&gt;-->
+<!--            <GridPane vgap="5" hgap="10">-->
+<!--                <Label textAlignment="LEFT"-->
+<!--                       GridPane.rowIndex="0" GridPane.columnIndex="0">Nom :-->
+<!--                </Label>-->
+<!--                <TextField GridPane.rowIndex="0" GridPane.columnIndex="1"></TextField>-->
+
+<!--                <Label textAlignment="LEFT"-->
+<!--                       GridPane.rowIndex="1" GridPane.columnIndex="0">Famille :-->
+<!--                </Label>-->
+<!--                <TextField GridPane.rowIndex="1" GridPane.columnIndex="1"></TextField>-->
+
+<!--                <Label textAlignment="LEFT"-->
+<!--                       GridPane.rowIndex="2" GridPane.columnIndex="0">Point de santé :-->
+<!--                </Label>-->
+<!--                <TextField GridPane.rowIndex="2" GridPane.columnIndex="1"></TextField>-->
+
+<!--                <Label textAlignment="LEFT"-->
+<!--                       GridPane.rowIndex="3" GridPane.columnIndex="0">Arme :-->
+<!--                </Label>-->
+<!--                <TextField GridPane.rowIndex="3" GridPane.columnIndex="1"></TextField>-->
+<!--            </GridPane>-->
+
+<!--            &lt;!&ndash; On aurait pu utilisé un AnchorPane global, mais ici on a vraiment juste besoin des fonctionnalités-->
+<!--            d'ancre pour ces deux boutons &ndash;&gt;-->
+<!--            <AnchorPane>-->
+<!--                <HBox AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="10"-->
+<!--                      spacing="10">-->
+<!--                    <Button styleClass="form_action">Valider</Button>-->
+<!--                    <Button styleClass="form_action">Réinitialiser</Button>-->
+<!--                </HBox>-->
+<!--            </AnchorPane>-->
+<!--        </VBox>-->
+<!--    </center>-->
+
+</VBox>
